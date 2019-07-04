@@ -1,0 +1,34 @@
+
+	<div id= "bigBurger" class="row">
+		<img id="burgerImage" src="./assets/images/veggieburger.jpg" alt="veggieBurger">
+	<h1 class="title" id="headline">Veggie Burgers! Enter a Veggie Burger and devour that sweet meatlessness</h1>
+	<h1 class="title" id="headline">Place Your Order:</h1>
+	</div>
+	<div class="container">
+{{!-- Adding a burger --}}
+<form action="burgers/create" method="POST">
+	<div id= "meat" class="row">
+		<div class="formGroup col-md-6">
+			<label="newBurger" class="newBurger">Place order here: </label>
+				<textarea class="formMaintenance" id="newBurger" name="burger_name"></textarea>
+		</div>
+	</div>
+	<button id="submit" type="submit" class="btn btn-danger"> Add
+		Burger</button>
+</form>
+	{{#each burger_data}}
+	<p>{{{this.burger_name}}}</p>
+	{{#unless this.devoured}}
+	<div id= "eatIt" class="col-md-9">
+		<p>{{this.id}}. {{this.burger_name}}
+			<span class="eatButton">
+				<button class="btn btn-success eatDaBurger" data-id="{{id}}" data-devoured=false type="button">
+					{{#if devoured}}Devoured!{{else}}Eat It!{{/if}}
+				</button>
+			</span>
+		</p>
+		{{/unless}}
+		{{/each}}
+	</div>
+</div>
+</div>
